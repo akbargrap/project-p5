@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+  <meta charset="UTF-8">
+
+
+  <style>
+    .animated-section {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+/* Tampilan Umum */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Header */
+header {
+  background: linear-gradient(270deg, #3b82f6, #6366f1, #06b6d4);
+  background-size: 600% 600%;
+  animation: gradientFlow 8s ease infinite;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 4px solid #2563eb;
+}
+
+.judul-header {
+  display: inline-block;
+  animation: floatUpDown 2.5s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Navigasi */
+nav {
+  background-color: #e0f2fe;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #bae6fd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #1d4ed8;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0f172a;
+}
+
+/* Tombol Mode Gelap dengan Ikon */
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-right: 1rem;
+}
+
+#themeToggle:hover {
+  transform: scale(1.2);
+}
+
+/* Konten Utama */
+main {
+  padding: 2rem;
+}
+
+/* Setiap Bagian (Section) */
+section {
+  background-color: white;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 1;
+  position: relative;
+}
+
+section:nth-of-type(even) {
+  background-color: #f8fafc;
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+section:nth-of-type(odd) {
+  background-color: #ffffff;
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+/* Judul dengan Emoji */
+h2::before {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+section:nth-of-type(1) h2::before { content: "🎓"; }
+section:nth-of-type(2) h2::before { content: "📝"; }
+section:nth-of-type(3) h2::before { content: "📚"; }
+section:nth-of-type(4) h2::before { content: "🎯"; }
+section:nth-of-type(5) h2::before { content: "🧰"; }
+section:nth-of-type(6) h2::before { content: "🔧"; }
+section:nth-of-type(7) h2::before { content: "🎥"; }
+section:nth-of-type(8) h2::before { content: "✅"; }
+section:nth-of-type(9) h2::before { content: "🧠"; }
+section:nth-of-type(10) h2::before { content: "🧑‍🤝‍🧑"; }
+section:nth-of-type(11) h2::before { content: "📌"; }
+section:nth-of-type(12) h2::before { content: "💡"; }
+
+/* Judul */
+h2 {
+  color: #1d4ed8;
+  margin-top: 0;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+/* Footer */
+footer {
+  background-color: #e0f2fe;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mode Gelap */
+body.dark {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark header {
+  background: linear-gradient(270deg, #1e3a8a, #312e81, #0f766e);
+  background-size: 600% 600%;
+  animation: gradientFlow 8s ease infinite;
+  border-bottom: 4px solid #1f2937;
+}
+
+body.dark nav {
+  background-color: #374151;
+  border-bottom: 1px solid #4b5563;
+}
+
+body.dark nav a {
+  color: #93c5fd;
+}
+
+body.dark nav a:hover {
+  color: #ffffff;
+}
+
+body.dark section {
+  background-color: #374151;
+  color: #f9fafb;
+  border: 1.5px solid #52525b;
+}
+
+body.dark footer {
+  background-color: #111827;
+  color: #9ca3af;
+}
+
+body.dark #themeToggle {
+  color: #fbbf24;
+}
+
+/* Accordion panah SVG */
+.accordion summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1rem 1rem 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.arrow-icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.accordion details[open] .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  padding: 0 1rem 1rem 2.5rem;
+  animation: slideFade 0.3s ease;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Header Animasi Warna dan Teks === */
+header {
+  background: linear-gradient(270deg, #3b82f6, #6366f1, #06b6d4);
+  background-size: 600% 600%;
+  animation: gradientFlow 8s ease infinite;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.judul-header {
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== Dekorasi Bintang di Header ===== */
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: #ffffffb0;
+  font-size: 1rem;
+  animation: sparkleMove 6s ease-in-out infinite;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@keyframes sparkleMove {
+  0%   { transform: translateY(0) scale(1); opacity: 0.9; }
+  50%  { transform: translateY(-10px) scale(1.2); opacity: 0.6; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Posisi acak - kamu bisa tambah lebih banyak */
+.star1 { top: 10px; left: 5%; animation-delay: 0s; }
+.star2 { top: 20px; left: 25%; animation-delay: 1s; }
+.star3 { top: 30px; left: 45%; animation-delay: 2s; }
+.star4 { top: 15px; left: 65%; animation-delay: 0.5s; }
+.star5 { top: 5px; left: 85%; animation-delay: 1.5s; }
+.star6 { bottom: 10px; left: 15%; animation-delay: 2.5s; }
+.star7 { bottom: 15px; left: 35%; animation-delay: 0.8s; }
+.star8 { bottom: 20px; left: 55%; animation-delay: 1.2s; }
+.star9 { bottom: 5px; left: 75%; animation-delay: 2.2s; }
+.star10 { bottom: 8px; left: 90%; animation-delay: 0.3s; }
+
+/* === Bintang Dekoratif Berkedip === */
+.star {
+  position: absolute;
+  font-size: 1.2rem;
+  color: #ffffffd0;
+  animation: sparkleBlink 4s infinite ease-in-out;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@keyframes sparkleBlink {
+  0%, 100% { opacity: 0.1; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Posisi bintang (10 contoh acak) */
+.star1 { top: 10px; left: 5%; animation-delay: 0s; }
+.star2 { top: 20px; left: 25%; animation-delay: 0.5s; }
+.star3 { top: 30px; left: 45%; animation-delay: 1s; }
+.star4 { top: 15px; left: 65%; animation-delay: 1.5s; }
+.star5 { top: 5px; left: 85%; animation-delay: 2s; }
+.star6 { bottom: 10px; left: 15%; animation-delay: 0.3s; }
+.star7 { bottom: 15px; left: 35%; animation-delay: 0.8s; }
+.star8 { bottom: 20px; left: 55%; animation-delay: 1.3s; }
+.star9 { bottom: 5px; left: 75%; animation-delay: 1.8s; }
+.star10 { bottom: 8px; left: 90%; animation-delay: 2.3s; }
+
+
+  </style>
+</head>
+<link rel="stylesheet" href="style.css">
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('themeToggle');
+    const body = document.body;
+  
+    // Terapkan tema dari localStorage jika ada
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark');
+      toggleButton.textContent = '🌞';
+    }
+  
+    // Ganti tema saat tombol diklik
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      const isDark = body.classList.contains('dark');
+      toggleButton.textContent = isDark ? '🌞' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  });
+  
+</script>
+
+<body>
+
+  <header>
+    <h1 class="judul-header">Sapu Elektrik dari Bahan Sederhana</h1>
+  
+    <!-- Bintang dekoratif -->
+    <span class="star star1">✨</span>
+    <span class="star star2">✨</span>
+    <span class="star star3">✨</span>
+    <span class="star star4">✨</span>
+    <span class="star star5">✨</span>
+    <span class="star star6">✨</span>
+    <span class="star star7">✨</span>
+    <span class="star star8">✨</span>
+    <span class="star star9">✨</span>
+    <span class="star star10">✨</span>
+  </header>
+  
+  
+  <nav>
+    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+    <a href="#identitas">Identitas Kelompok</a>
+    <a href="#latar-belakang">Latar Belakang</a>
+    <a href="#deskripsi-produk">Deskripsi Produk</a>
+    <a href="#tujuan">Tujuan</a>
+    <a href="#alat-bahan">Alat & Bahan</a>
+    <a href="#langkah">Langkah</a>
+  </nav>
+
+  <main>
+    <section id="identitas" class="animated-section">
+      <h2>Identitas Kelompok 5</h2>
+      <p><strong>Koordinator Kelompok:</strong> Muhamad Akbar Ar-Rafa'i</p>
+      <p><strong>Anggota:</strong></p>
+      <ul>
+        <li>Harvianto Arie Putra</li>
+        <li>Chico Alphanoea</li>
+        <li>Satya Al-Khalifi</li>
+      </ul>
+    </section>
+
+    <section id="deskripsi-produk" class="animated-section">
+      <h2>Deskripsi Produk</h2>
+      <p>
+      
+        Sapu elektrik ini terbuat dari kardus bekas dan dilengkapi dengan dinamo kecil yang 
+        menggerakkan tutup botol dan sumpit yang diapit tali rafia yang menyerupai sapu. Dinamo mendapat daya dari baterai dan membantu 
+        memutar bagian pembersih secara otomatis. Namun, arah dan pergerakan sapu tetap dikendalikan 
+        secara manual menggunakan tangan. Produk ini ramah lingkungan, edukatif, dan cocok sebagai proyek kreatif 
+        untuk pelajar yang ingin memahami prinsip dasar mekanik dan elektronika.
+      
+      </p>
+    
+    </section>
+
+    <section id="latar-belakang" class="animated-section">
+      <h2>Latar Belakang</h2>
+      <p>Kebersihan lingkungan, terutama di dalam ruangan seperti meja kerja, kamar, atau ruang belajar, sangat penting untuk kenyamanan dan kesehatan. Namun, membersihkan sampah kecil seperti potongan kertas, debu, atau serpihan seringkali membutuhkan alat yang praktis dan efisien.
+      Sapu konvensional kurang efektif karena sulit menjangkau sudut sempit dan memerlukan tenaga ekstra.</p>
+      <p>Proyek ini menghadirkan solusi berupa sapu elektrik kecil yang digerakkan tangan, namun memiliki sistem penyapu otomatis berkat penggunaan dinamo. Alat ini dibuat dari bahan sederhana seperti kardus dan tali rafia, yang mudah didapat dan ramah lingkungan.</p>
+      <p>Selain menjadi solusi praktis, proyek ini juga merupakan sarana edukatif untuk mengenalkan prinsip kerja dinamo dan teknologi mekanika sederhana, sekaligus mendorong kreativitas dalam memanfaatkan limbah menjadi sesuatu yang berguna.</p>
+    </section>
+
+    <section id="tujuan" class="animated-section">
+      <h2>Tujuan</h2>
+      <ul>
+        <li>Membuat alat pembersih sederhana yang dapat bergerak otomatis menggunakan dinamo dan bahan daur ulang.</li>
+        <li>Meningkatkan kreativitas dan keterampilan teknis dalam merakit alat berbasis rekayasa sederhana.</li>
+        <li>Mendorong pemanfaatan limbah seperti kardus bekas untuk menciptakan produk yang berguna dan ramah lingkungan.</li>
+      </ul>
+    </section>
+
+    <section id="alat-bahan" class="animated-section">
+      <h2>Alat dan Bahan</h2>
+      <h3>Bahan:</h3>
+      <ul>
+        <li>Kardus bekas</li>
+        <li>1 buah dinamo kecil</li>
+        <li>Baterai 9V</li>
+        <li>Saklar kecil (on/off)</li>
+        <li>Kabel kecil</li>
+        <li>Lem tembak (glue gun)</li>
+        <li>Isolasi atau lakban</li>
+        <li>Sumpit kayu</li>
+        <li>Tutup botol plastik</li>
+        <li>Tali rafia</li>
+        <li>Tali ikat rambut</li>
+      </ul>
+      <h3>Alat:</h3>
+      <ul>
+        <li>Cutter atau gunting</li>
+        <li>Solder dan timah (opsional)</li>
+        <li>Penggaris dan spidol</li>
+      </ul>
+    </section>
+
+    <section id="langkah" class="animated-section">
+      <h2>Langkah Pembuatan</h2>
+      <ol>
+        <li><strong>Membuat Rangka Alat dari Kardus:</strong> Potong kardus membentuk kotak sebagai badan alat. Buat lubang di bagian depan bawah untuk tempat keluarnya sapu.</li>
+        <li><strong>Membuat Sapu Putar:</strong> Belah sumpit di tengah, jepit potongan tali rafia, dan rekatkan dengan lem tembak.</li>
+        <li><strong>Merangkai Penggerak:</strong> Sambungkan poros dinamo ke sumpit dengan tali ikat rambut sebagai kopling. Gunakan tutup botol sebagai dudukan sumpit agar stabil.</li>
+        <li><strong>Pemasangan ke Rangka:</strong> Tempelkan dinamo ke bagian dalam kardus. Pastikan bagian penyapu menyentuh lantai dan terpasang kuat.</li>
+        <li><strong>Rangkaian Listrik:</strong> Hubungkan dinamo ke baterai dan saklar menggunakan kabel. Tempelkan saklar di atas kardus agar mudah digunakan.</li>
+        <li><strong>Pengujian Alat:</strong> Nyalakan saklar: sumpit berputar dan menyapu kotoran saat alat didorong manual.</li>
+      </ol>
+    </section>
+
+    <h3>Video Demonstrasi:</h3>
+<div style="text-align:center; margin-top: 1rem;">
+  <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/pH4svJtCFn4"
+    title="Video Demonstrasi Sapu Elektrik dari Kardus"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+    <section id="kelebihan-kekurangan" class="animated-section">
+      <h2>Kelebihan dan Kekurangan</h2>
+      <h3>Kelebihan:</h3>
+      <ul>
+        <li>Terbuat dari bahan daur ulang yang murah dan mudah ditemukan.</li>
+        <li>Mudah dibuat dengan alat sederhana.</li>
+        <li>Ringan dan mudah dibawa ke mana saja.</li>
+        <li>Meningkatkan kreativitas dan pemahaman teknologi sederhana.</li>
+        <li>Ramah lingkungan karena memanfaatkan limbah kardus.</li>
+      </ul>
+
+      <h3>Kekurangan:</h3>
+      <ul>
+        <li>Daya tahan alat tidak sekuat produk pabrik.</li>
+        <li>Kinerja terbatas hanya untuk sampah ringan atau kecil.</li>
+        <li>Penggunaan baterai perlu diganti bila habis.</li>
+        <li>Tidak cocok untuk digunakan pada area yang luas atau permukaan kasar.</li>
+      </ul>
+    </section>
+
+    <section id="solusi" class="animated-section">
+      <h2>Alasan dan Solusi atas Kekurangan</h2>
+      <div class="accordion">
+    
+        <details>
+          <summary>
+            <svg class="arrow-icon" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Daya tahan alat tidak sekuat produk pabrik
+          </summary>
+          <div class="accordion-content">
+            <p>
+              Karena bahan utama adalah kardus bekas, kekuatannya terbatas.<br>
+              <strong>Solusi:</strong> Gunakan kardus tebal berkualitas dan perkuat bagian penting dengan kayu tipis atau plastik daur ulang.
+            </p>
+          </div>
+        </details>
+    
+        <details>
+          <summary>
+            <svg class="arrow-icon" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Kinerja terbatas hanya untuk sampah ringan
+          </summary>
+          <div class="accordion-content">
+            <p>
+              Motor kecil memiliki tenaga terbatas.<br>
+              <strong>Solusi:</strong> Gunakan motor dengan torsi lebih tinggi jika diperlukan, atau batasi penggunaan untuk kotoran ringan saja.
+            </p>
+          </div>
+        </details>
+    
+        <details>
+          <summary>
+            <svg class="arrow-icon" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Penggunaan baterai perlu diganti secara berkala
+          </summary>
+          <div class="accordion-content">
+            <p>
+              Baterai 9V cepat habis jika digunakan terus-menerus.<br>
+              <strong>Solusi:</strong> Gunakan baterai isi ulang (rechargeable) agar lebih hemat dan ramah lingkungan.
+            </p>
+          </div>
+        </details>
+    
+        <details>
+          <summary>
+            <svg class="arrow-icon" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" stroke="#1d4ed8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Tidak cocok untuk area luas atau permukaan kasar
+          </summary>
+          <div class="accordion-content">
+            <p>
+              Karena alat ini dirancang untuk ruang kecil seperti kamar atau meja.<br>
+              <strong>Solusi:</strong> Fokuskan penggunaan pada area sempit yang datar sesuai desain alat ini.
+            </p>
+          </div>
+        </details>
+    
+      </div>
+    </section>
+    
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Proyek P5 Kelas 11 | Tema Teknologi Sederhana</p>
+  </footer>
+</body>
+</html>
